@@ -1,5 +1,7 @@
 package com.cb.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -101,5 +103,62 @@ public class BinaryTree {
 		int lh = height(nn.left);
 		int rh = height(nn.right);
 		return Math.max(lh, rh) + 1;
+	}
+
+	public void preOrder() {
+		preOdrder(this.root);
+		System.out.println();
+	}
+
+	private void preOdrder(Node nn) {
+		if (nn == null) {
+			return;
+		}
+		System.out.print(nn.val + " ");
+		preOdrder(nn.left);
+		preOdrder(nn.right);
+	}
+
+	public void postOrder() {
+		postOdrder(this.root);
+		System.out.println();
+	}
+
+	private void postOdrder(Node nn) {
+		if (nn == null) {
+			return;
+		}
+		preOdrder(nn.left);
+		preOdrder(nn.right);
+		System.out.print(nn.val + " ");
+	}
+
+	public void inOrder() {
+		inOrder(this.root);
+		System.out.println();
+	}
+
+	private void inOrder(Node nn) {
+		if (nn == null) {
+			return;
+		}
+		preOdrder(nn.left);
+		System.out.print(nn.val + " ");
+		preOdrder(nn.right);
+	}
+
+	public void leveleOrder() {
+		Queue<Node> q = new LinkedList<>();
+		q.add(root);
+		while (!q.isEmpty()) {
+			Node n = q.poll();
+			System.out.print(n.val + " ");
+			if (n.left != null) {
+				q.add(n.left);
+			}
+			if (n.right != null) {
+				q.add(n.right);
+			}
+		}
 	}
 }
