@@ -2,7 +2,8 @@ package com.cb.algorithm;
 
 public class KadanesAlgorithm {
 	public static void main(String[] args) {
-
+        int[] nums = {1,3,5,1,6,7};
+        System.out.println(maximumSubArrayV2(nums));
 	}
 	private static int maximumSubArrayV2(int[] nums) {
 		int result = Integer.MIN_VALUE;
